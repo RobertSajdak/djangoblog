@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -74,6 +75,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
+        # Dla korzystania z bazy MongoDB:
+        # 'ENGINE': 'djongo',
+        # 'NAME': 'baza_danych',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': 27017,
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
