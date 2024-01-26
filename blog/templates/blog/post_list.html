@@ -1,17 +1,14 @@
 {% extends "blog/base.html" %}
 
 {% block content %}
-{% for post in posts %}
-    <div class="post">
-        <div class="data">
-            <p>
-                opublikowany: {{ post.publish_date }}
-            </p>
+    {% for post in posts %}
+        <div class="post">
+            <div class="data">
+                <p>publikacja: {{ post.publish_date }}</p>
+            </div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }}</a></h2>
+            <img src="{{ post.image.url }}" alt="Obrazek" width="100px">
+            <em>{{ post.text|linebreaksbr }}</em>
         </div>
-        <h2>
-            <a href="{% url 'post_detail' pk=post.pk %}"> {{ post.title }}</a>
-        </h2>
-        <em>{{ post.text|linebreaksbr }}</em>
-    </div>
-{% endfor %}
+    {% endfor %}
 {% endblock %}
